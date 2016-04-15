@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<link rel="stylesheet" type="text/css" href="lib/easyui/themes/bootstrap/easyui.css">
+<link rel="stylesheet" type="text/css" href="lib/easyui/themes/icon.css">
+<script type="text/javascript" src="lib/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="lib/easyui/jquery.easyui.min.js"></script>
+<script>
+
+</script>
+</head>
+<body>
+<div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+        title="My Panel" iconCls="icon-save" collapsible="true">
+    Hello world! 입니다.
+</div>
+<input class="easyui-combobox" name="language"
+        data-options="
+            url:'combobox_data.json',
+            valueField:'id',
+            textField:'text',
+            panelHeight:'auto',
+            onSelect:function(record){
+                alert(record.text)
+            }">
+</body>
+</html>
