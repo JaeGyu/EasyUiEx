@@ -12,18 +12,56 @@
 </script>
 </head>
 <body>
-<div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
-        title="My Panel" iconCls="icon-save" collapsible="true">
-    Hello world! 입니다.
+
+<div id="cc" class="easyui-layout" style="width:1800px;height:800px;">
+    <div data-options="region:'north'" style="height:50px;"></div>
+<!--     <div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div> -->
+<!--     <div data-options="region:'east',title:'East',split:true" style="width:100px;"></div> -->
+    <div data-options="region:'west',title:'메뉴',split:true" style="width:150px;">
+    	<ul id="tt" class="easyui-tree">
+    	<li>
+        <span>Folder</span>
+        <ul>
+            <li>
+                <span>Sub Folder 1</span>
+                <ul>
+                    <li><span><a href="#">File 11</a></span></li>
+                    <li><span>File 12</span></li>
+                    <li><span>File 13</span></li>
+                </ul>
+            </li>
+            <li><span>File 2</span></li>
+            <li><span>File 3</span></li>
+        </ul>
+    	</li>
+    	<li><span>File21</span></li>
+		</ul>
+    </div>
+    <div data-options="region:'center'" style="padding:5px;background:#eee;">
+    	<div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+        	title="My Panel" iconCls="icon-save" collapsible="false">
+    	
+    	<table class="easyui-datagrid">
+    <thead>
+        <tr>
+            <th data-options="field:'code'">Code</th>
+            <th data-options="field:'name'">Name</th>
+            <th data-options="field:'price'">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>001</td><td>name1</td><td>2323</td>
+        </tr>
+        <tr>
+            <td>002</td><td>name2</td><td>4612</td>
+        </tr>
+    </tbody>
+</table>
+    	
+    	
+		</div>
+    </div>
 </div>
-<input class="easyui-combobox" name="language"
-        data-options="
-            url:'combobox_data.json',
-            valueField:'id',
-            textField:'text',
-            panelHeight:'auto',
-            onSelect:function(record){
-                alert(record.text)
-            }">
 </body>
 </html>
