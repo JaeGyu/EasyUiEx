@@ -24,20 +24,28 @@ $(function(){
 	    }
 	});
 	
-	function addTab(){
+	/*
+	  자식 노드일 경우에만 탭을 생성 한다.
+	*/
+	$('#tree-sample').tree({
+		onClick: function(node){
+			if(node.children === undefined || node.children === null){
+				console.log("자식 입니다.");
+				addTab(node.text);
+			} else {
+				console.log("부모 입니다.");
+			}
+		}
+	});
+	
+	function addTab(title){
 		if ($('#tt').tabs('exists', title)){
 			$('#tt').tabs('select', title);
 		} else {
 			$('#tt').tabs('add',{
-			    title:'New Tab',
-			    content:'Tab Body',
-			    closable:true,
-			    tools:[{
-			        iconCls:'icon-mini-refresh',
-			        handler:function(){
-			            console.log('refresh');
-			        }
-			    }]
+			    title: title,
+			    content:title,
+			    closable:true
 			});		
 		}		
 	};
@@ -45,7 +53,7 @@ $(function(){
 </script>
 </head>
 <body>
-<div id="base-layout" class="easyui-layout" style="width:100%;height:1000px;">
+<div id="base-layout" class="easyui-layout">
 	<div id="top" data-options="region:'north'" style="height:50px;background:#4d6c8b">
 		
 	</div>
@@ -68,16 +76,16 @@ $(function(){
 		</ul>
 	</div>
 	<div data-options="region:'center'" style="width:90%;padding:1px;background:#eee;">
-		<div id="tt" class="easyui-tabs" style="width:500px;height:250px;">
-    		<div title="Tab1" style="padding:20px;display:none;">
-        		tab1
-    		</div>
-    		<div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
-        		tab2
-    		</div>
-    		<div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="display:none;">
-        		tab3
-    		</div>
+		<div id="tt" class="easyui-tabs" style="width:100%;height:100%;">
+<!--     		<div title="Tab1" style="padding:20px;display:none;"> -->
+<!--         		tab1 -->
+<!--     		</div> -->
+<!--     		<div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;"> -->
+<!--         		tab2 -->
+<!--     		</div> -->
+<!--     		<div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="display:none;"> -->
+<!--         		tab3 -->
+<!--     		</div> -->
 		</div>
 <!-- 		<div id="p" class="easyui-panel" style="width:100%;height:50%;padding:10px;" -->
 <!--         	title="테스트 패널" iconCls="icon-save" collapsible="false"> -->
